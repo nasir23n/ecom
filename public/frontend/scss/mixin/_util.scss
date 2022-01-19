@@ -1,0 +1,123 @@
+
+.flex {
+    display: flex;
+}
+.align_center {
+    align-items: center;
+}
+.justify_right {
+    justify-content: flex-end;
+}
+
+.justify_center {
+    justify-content: center;
+}
+
+.align_justify_center {
+    align-items: center;
+    justify-content: center;
+}
+
+.flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex_wrap {
+    flex-wrap: wrap;
+}
+.flex_no_wrap {
+    flex-wrap: nowrap;
+}
+.flex_no_wrap_i {
+    flex-wrap: nowrap !important;
+}
+
+
+// margin start 
+.ml_auto {
+    margin-left: auto;
+}
+@each $size_val, $val in $size_mp {
+    .m#{$size_val} {
+        margin: #{$val}px;
+    }
+}
+@each $size_val, $val in $size_mp {
+    .ml#{$size_val} {
+        margin-left: #{$val}px;
+    }
+}
+@each $size_val, $val in $size_mp {
+    .mr#{$size_val} {
+        margin-right: #{$val}px;
+    }
+}
+@each $size_val, $val in $size_mp {
+    .mt#{$size_val} {
+        margin-top: #{$val}px;
+    }
+}
+@each $size_val, $val in $size_mp {
+    .mb#{$size_val} {
+        margin-bottom: #{$val}px;
+    }
+}
+.m0i {
+    margin: 0 !important;
+}
+// margin end 
+
+// padding start 
+@each $size_val, $val in $size_mp {
+    .p#{$size_val} {
+        padding: #{$val}px;
+    }
+}
+@each $size_val, $val in $size_mp {
+    .pl#{$size_val} {
+        padding-left: #{$val}px;
+    }
+}
+@each $size_val, $val in $size_mp {
+    .pr#{$size_val} {
+        padding-right: #{$val}px;
+    }
+}
+@each $size_val, $val in $size_mp {
+    .pt#{$size_val} {
+        padding-top: #{$val}px;
+    }
+}
+@each $size_val, $val in $size_mp {
+    .pb#{$size_val} {
+        padding-bottom: #{$val}px;
+    }
+}
+.p0i {
+    padding: 0 !important;
+}
+// padding end 
+
+
+// text limited line start 
+@for $i from 1 to 10 {
+    .text_limit\:#{$i} {
+        display: -webkit-box;
+        -webkit-line-clamp: $i;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+// text limited line end 
+
+// border-radics start 
+@each $size_val, $val in $size_mp {
+    .radious\:#{$size_val} {
+        border-radius: #{$val}px;
+    }
+}
+.radious_none {
+    border-radius: 0 !important;
+}
+// border-radics end 

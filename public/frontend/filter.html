@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startech-clone</title>
+    <link rel="stylesheet" href="font-awesome/css/all.css" />
+    <link rel="stylesheet" href="scss/master.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header_top"> 
+            <a href="index.html" class="logo">
+                <img src="image/logo.webp" alt="">
+            </a>
+            <div class="search"> <!--active search_sm-->
+                <input type="search" placeholder="Search" class="search_input">
+                <button class="search_submit">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="search_reault">
+                    <div class="search_header">
+                        <button class="nl">Search</button>
+                    </div>
+                    <div class="result_body">
+                        <a href="#" class="result_item">
+                            <div class="image">
+                                <img src="image/product.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <span class="name">Cisco UCS-C220-M5SX 1RU rack server (6 Core)</span>
+                                <strong class="price">$150</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="result_item">
+                            <div class="image">
+                                <img src="image/product.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <span class="name">Cisco UCS-C220-M5SX 1RU rack server (6 Core)</span>
+                                <strong class="price">$150</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="result_item">
+                            <div class="image">
+                                <img src="image/box.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <span class="name">Cisco UCS-C220-M5SX 1RU rack server (6 Core)</span>
+                                <strong class="price">$150</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button class="search_show_sm">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            <div class="header_right">
+                <div class="sp_wrap account">
+                    <button class="sp_btn">
+                        <i class="icn far fa-user-circle"></i>
+                        <div class="sp_right">
+                            <span class="had">Account</span>
+                            <span class="sub">Registar or Login</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    
+    <div class="filter_wrap">
+        <div class="container">
+            <div class="filter_container">
+                <div class="filter_aside">
+                    <button class="filter_close"><i class="fa fa-times-circle"></i></button>
+                    <div class="panel expandable active">
+                        <div class="head">
+                            <span>Price range</span>
+                        </div>
+                        <div class="body">
+                            <div class="range_wrap">
+                                <div class="slider_track" style="--left: 20%; --right: 50%;"></div>
+                                <input class="range range_1" type="range" value="0" min="0" max="100">
+                                <input class="range range_2" type="range" value="70" min="0" max="100">
+                                <div class="values">
+                                    <span class="value_1">20</span>
+                                    To
+                                    <span class="value_2">70</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel expandable active">
+                        <div class="head">
+                            <span>Availability</span>
+                        </div>
+                        <div class="body filter_check_wrap">
+                            <div class="filter_check">
+                                <label class="block_checkbox">
+                                    <input class="checkbox success" type="checkbox">
+                                    <span>name</span>
+                                </label>
+                            </div> 
+                            <div class="filter_check">
+                                <label class="block_checkbox">
+                                    <input class="checkbox success" type="checkbox">
+                                    <span>name</span>
+                                </label>
+                            </div> 
+                            <div class="filter_check">
+                                <label class="block_checkbox">
+                                    <input class="checkbox success" type="checkbox">
+                                    <span>name</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter_content">
+                    <div class="panel">
+                        <div class="head filter_had">
+                            <h3 class="had_txt">search head</h3>
+                            <button class="aside_toggle"><i class="fas fa-filter"></i></button>
+                            <div class="had_right">
+                                <div class="select_wrap show">
+                                    <span>Show:</span>
+                                    <select class="select" name="show">
+                                        <option value="">10</option>
+                                        <option value="">20</option>
+                                        <option value="">30</option>
+                                        <option value="">40</option>
+                                        <option value="">50</option>
+                                    </select>
+                                </div>
+                                <div class="select_wrap">
+                                    <span>Short By:</span>
+                                    <select class="select" name="select">
+                                        <option value="">Low > High</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter_grid">
+                        <div class="product_item">
+                            <a href="single_page.html" class="product">
+                                <img src="image/product1.jpg" alt="">
+                            </a>
+                            <div class="details">
+                                <h4 class="product_name">
+                                    <a href="#">Deli 4116 Fingerprint & Digital Safe Box / Locker / Vault</a>
+                                </h4>
+                                <span class="price">45,000৳</span>
+                            </div>
+                        </div>
+                        <div class="product_item">
+                            <a href="single_page.html" class="product">
+                                <img src="image/product1.jpg" alt="">
+                            </a>
+                            <div class="details">
+                                <h4 class="product_name">
+                                    <a href="#">Deli 4116 Fingerprint & Digital Safe Box / Locker / Vault</a>
+                                </h4>
+                                <span class="price">45,000৳</span>
+                            </div>
+                        </div>
+                        <div class="product_item">
+                            <a href="single_page.html" class="product">
+                                <img src="image/product1.jpg" alt="">
+                            </a>
+                            <div class="details">
+                                <h4 class="product_name">
+                                    <a href="#">Deli 4116 Fingerprint & Digital Safe Box / Locker / Vault</a>
+                                </h4>
+                                <span class="price">45,000৳</span>
+                            </div>
+                        </div>
+                        <div class="product_item">
+                            <a href="single_page.html" class="product">
+                                <img src="image/product1.jpg" alt="">
+                            </a>
+                            <div class="details">
+                                <h4 class="product_name">
+                                    <a href="#">Deli 4116 Fingerprint & Digital Safe Box / Locker / Vault</a>
+                                </h4>
+                                <span class="price">45,000৳</span>
+                            </div>
+                        </div>
+                        <div class="product_item">
+                            <a href="single_page.html" class="product">
+                                <img src="image/product1.jpg" alt="">
+                            </a>
+                            <div class="details">
+                                <h4 class="product_name">
+                                    <a href="#">Deli 4116 Fingerprint & Digital Safe Box / Locker / Vault</a>
+                                </h4>
+                                <span class="price">45,000৳</span>
+                            </div>
+                        </div>
+                        <div class="product_item">
+                            <a href="single_page.html" class="product">
+                                <img src="image/product1.jpg" alt="">
+                            </a>
+                            <div class="details">
+                                <h4 class="product_name">
+                                    <a href="#">Deli 4116 Fingerprint & Digital Safe Box / Locker / Vault</a>
+                                </h4>
+                                <span class="price">45,000৳</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer_grid">
+                <div class="part">
+                    <h4 class="footer_title">
+                        SUPPORT
+                    </h4>
+                    <a href="tel:01700000000" class="support_item">
+                        <div class="support_left">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="support_right">
+                            <div>
+                                <span class="small_tit">9AM-8PM</span>
+                                <h4 class="had">01700000000</h4>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="mailto:test-email@gmail.com" class="support_item">
+                        <div class="support_left">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="support_right">
+                            <div>
+                                <span class="small_tit">Email</span>
+                                <h4 class="had">test-email@gmail.com</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="part">
+                    <h4 class="footer_title">
+                        Important links
+                    </h4>
+                    <ul class="imp_links">
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                        <li><a href="#">Link 4</a></li>
+                        <li><a href="#">Link 5</a></li>
+                    </ul>
+                </div>
+                <div class="part">
+                    <h4 class="footer_title">
+                        Important links
+                    </h4>
+                    <ul class="imp_links">
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                        <li><a href="#">Link 4</a></li>
+                        <li><a href="#">Link 5</a></li>
+                    </ul>
+                </div>
+                <div class="part">
+                    <h4 class="footer_title">STAY CONNECTED</h4>
+                    <p class="footer_strong">Star Tech & Engineering Ltd</p>
+                    <p class="footer_light">6th floor, 28 Kazi Nazrul Islam Ave,Navana Zohura Square, Dhaka 1000</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/app.js"></script>
+    <script>
+    let aside_toggle = _('.aside_toggle');
+    let filter_aside = _('.filter_aside');
+    let filter_close = _('.filter_close');
+    aside_toggle.addEventListener('click', function() {
+        filter_aside.classList.add('active');
+    }); 
+    if (filter_close.addEventListener) {
+        filter_close.addEventListener('click', function() {
+            filter_aside.classList.remove('active');
+        });
+    }
+    if (_all('.range_wrap').length) {
+        let minGap = 10;
+        _all('.range_wrap').map(wrap => {
+            let range1 = wrap.querySelector('.range_1');
+            let range2 = wrap.querySelector('.range_2');
+            let sliderMaxValue = range1.max;
+            let sliderTrack = wrap.querySelector('.slider_track');
+            let percent1 = (range1.value / sliderMaxValue) * 100;
+            let percent2 = (range2.value / sliderMaxValue) * 100;
+            let value1 = wrap.querySelector('.value_1');
+            let value2 = wrap.querySelector('.value_2');
+            fill(sliderTrack, percent1, percent2);
+            value1.textContent = range1.value;
+            value2.textContent = range2.value;
+            range1.addEventListener('input', function() { 
+                if(parseInt(range2.value) - parseInt(range1.value) <= minGap){
+                    range1.value = parseInt(range2.value) - minGap;
+                }
+                percent1 = (range1.value / sliderMaxValue) * 100;
+                percent2 = (range2.value / sliderMaxValue) * 100;
+                value1.textContent = range1.value;
+                fill(sliderTrack, percent1, percent2);
+            });
+
+            range2.addEventListener('input', function() {
+                if(parseInt(range2.value) - parseInt(range1.value) <= minGap){
+                    range2.value = parseInt(range1.value) + minGap;
+                }
+                value2.textContent = range2.value;
+                percent1 = (range1.value / sliderMaxValue) * 100;
+                percent2 = (range2.value / sliderMaxValue) * 100;
+                fill(sliderTrack, percent1, percent2);
+            });
+        });
+        function fill(target, p1, p2) {
+            target.style.background = `linear-gradient(to right, #dadae5 ${p1}% , var(--fave) ${p1}% , var(--fave) ${p2}%, #dadae5 ${p2}%)`;
+        }
+    }
+    </script>
+</body>
+</html>

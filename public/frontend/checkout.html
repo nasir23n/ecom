@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startech-clone</title>
+    <link rel="stylesheet" href="font-awesome/css/all.css" />
+    <link rel="stylesheet" href="scss/master.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header_top">
+            <a href="index.html" class="logo">
+                <img src="image/logo.png" alt="">
+            </a>
+            <div class="search">
+                <!--active search_sm-->
+                <input type="search" placeholder="Search" class="search_input">
+                <button class="search_submit">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="search_reault">
+                    <div class="search_header">
+                        <button class="nl">Search</button>
+                    </div>
+                    <div class="result_body">
+                        <a href="#" class="result_item">
+                            <div class="image">
+                                <img src="image/product.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <span class="name">Cisco UCS-C220-M5SX 1RU rack server (6 Core)</span>
+                                <strong class="price">$150</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="result_item">
+                            <div class="image">
+                                <img src="image/product.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <span class="name">Cisco UCS-C220-M5SX 1RU rack server (6 Core)</span>
+                                <strong class="price">$150</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="result_item">
+                            <div class="image">
+                                <img src="image/box.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <span class="name">Cisco UCS-C220-M5SX 1RU rack server (6 Core)</span>
+                                <strong class="price">$150</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button class="search_show_sm">
+                <i class="fas fa-search"></i>
+            </button>
+
+            <div class="header_right">
+                <div class="sp_wrap account">
+                    <a href="login.html" class="sp_btn">
+                        <i class="icn far fa-user-circle"></i>
+                        <div class="sp_right">
+                            <span class="had">Account</span>
+                            <span class="sub">Registar or Login</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="main">
+        <div class="container">
+            <br>
+            <h1>Checkout</h1>
+            <div class="panel">
+                <div class="head">
+                    <h2>Customer Info</h2>
+                </div>
+                <div class="body">
+                    <div class="info_grid">
+                        <div>
+                            <label>Customer Name</label>
+                            <input type="text" class="form_control" placeholder="Name..">
+                        </div>
+                        <div>
+                            <label>Phone</label>
+                            <input type="number" class="form_control" placeholder="Phone..">
+                        </div>
+                        <div>
+                            <label>Address</label>
+                            <input type="text" class="form_control" placeholder="Address..">
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input type="email" class="form_control" placeholder="Email..">
+                        </div>
+                        <div style="grid-column: 1/3;">
+                            <label>Comment</label>
+                            <textarea name="comment" rows="3" class="form_control" placeholder="Comment.."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="pay_delivery">
+                <div class="panel">
+                    <div class="head">
+                        <h2>Payment Method</h2>
+                    </div>
+                    <div class="body">
+                        <p>Select payment method</p>
+                        <div class="form_row">
+                            <label class="radio warning">
+                                <input type="radio" name="payment_method" checked>
+                                <span></span>Cash on Delivery
+                            </label>
+                            <label class="radio warning">
+                                <input type="radio" name="payment_method">
+                                <span></span>Online Payment
+                            </label>
+                        </div>
+                        <br>
+                        <h4>We Accept:</h4>
+                        <div class="pay_card">
+                            <img src="image/payment_logo.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="head">
+                        <h2>Delivery Method</h2>
+                    </div>
+                    <div class="body">
+                        <p>Select Delivery Method</p>
+                        <div class="form_group">
+                            <label class="radio warning">
+                                <input type="radio" name="payment_method" checked>
+                                <span></span>Cash on Delivery
+                            </label>
+                            <br>
+                            <label class="radio warning">
+                                <input type="radio" name="payment_method">
+                                <span></span>Online Payment
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="head">
+                    <h2>Order Overview</h2>
+                </div>
+                <div class="body">
+                    <div class="table_responsive">
+                        <table class="table bordered cart_table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 80px;" class="cart_img">Image</th>
+                                    <th>Product name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="servicing_row" s_id="2">
+                                    <td class="cart_img">
+                                        <img src="image/product2.jpg" alt="">
+                                    </td>
+                                    <td>Non-brand Apple Mouse Pad</td>
+                                    <td>150TK</td>
+                                    <td>1</td>
+                                    <td>150TK</td>
+                                    <td>
+                                        <button class="nl"><i class="fas fa-times"></i></button>
+                                    </td> 
+                                </tr>
+                                <tr class="result">
+                                    <td colspan="4" class="title">Total</td>
+                                    <td colspan="2" class="out">800TK</td> 
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+            <div class="order">
+                <label class="block_checkbox">
+                    <input class="checkbox x3 success" type="checkbox">
+                    <span>I have read and agree to the Terms and Conditions, Privacy Policy and Refund and Return Policy</span>
+                </label>
+                <Button class="nl primary ml_auto">Confirm Order</Button>
+            </div>
+            <br><br><br>
+        </div>
+    </div>
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer_grid">
+                <div class="part">
+                    <h4 class="footer_title">
+                        SUPPORT
+                    </h4>
+                    <a href="tel:01700000000" class="support_item">
+                        <div class="support_left">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="support_right">
+                            <div>
+                                <span class="small_tit">9AM-8PM</span>
+                                <h4 class="had">01700000000</h4>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="mailto:test-email@gmail.com" class="support_item">
+                        <div class="support_left">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="support_right">
+                            <div>
+                                <span class="small_tit">Email</span>
+                                <h4 class="had">test-email@gmail.com</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="part">
+                    <h4 class="footer_title">
+                        Important links
+                    </h4>
+                    <ul class="imp_links">
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                        <li><a href="#">Link 4</a></li>
+                        <li><a href="#">Link 5</a></li>
+                    </ul>
+                </div>
+                <div class="part">
+                    <h4 class="footer_title">
+                        Important links
+                    </h4>
+                    <ul class="imp_links">
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                        <li><a href="#">Link 4</a></li>
+                        <li><a href="#">Link 5</a></li>
+                    </ul>
+                </div>
+                <div class="part">
+                    <h4 class="footer_title">STAY CONNECTED</h4>
+                    <p class="footer_strong">Star Tech & Engineering Ltd</p>
+                    <p class="footer_light">6th floor, 28 Kazi Nazrul Islam Ave,Navana Zohura Square, Dhaka 1000</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let _ = function (selector) {
+            return document.querySelector(selector);
+        }
+        let _all = function (selector) {
+            let el = document.querySelectorAll(selector);
+            return Object.values(el);
+        }
+        let search_input = _('.search_input');
+        let search = _('.search');
+        let search_reault = _('.search_reault');
+        let search_show_sm = _('.search_show_sm');
+        search_show_sm.addEventListener('click', function () {
+            search.classList.toggle('search_sm');
+        });
+        window.addEventListener('click', function (e) {
+            let parent_match = e.target.offsetParent.parentElement.classList.contains('search');
+            let target_is_input = e.target.classList.contains('search_input');
+            if (parent_match || target_is_input) {
+                let val = search_input.value;
+                if (val) {
+                    search.classList.add('active');
+                    if (window.innerWidth <= 768) {
+                        search.classList.add('search_sm');
+                    }
+                }
+            } else {
+                search.classList.remove('active');
+                if (window.innerWidth <= 768) {
+                    search.classList.add('search_sm');
+                }
+            }
+        });
+        search_input.addEventListener('input', function () {
+            let val = this.value;
+            if (val) {
+                search.classList.add('active');
+                if (window.innerWidth <= 768) {
+                    search.classList.add('search_sm');
+                }
+            } else {
+                search.classList.remove('active');
+            }
+        });
+
+    </script>
+</body>
+
+</html>

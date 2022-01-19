@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startech-clone</title>
+    <link rel="stylesheet" href="font-awesome/css/all.css" />
+    <link rel="stylesheet" href="scss/master.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header_top"> 
+            <a href="index.html" class="logo">
+                <img src="image/logo.png" alt="">
+            </a>
+            <div class="search"> <!--active search_sm-->
+                <input type="search" placeholder="Search" class="search_input">
+                <button class="search_submit">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="search_reault">
+                    <div class="search_header">
+                        <button class="nl">Search</button>
+                    </div>
+                    <div class="result_body">
+                        <a href="#" class="result_item">
+                            <div class="image">
+                                <img src="image/product.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <span class="name">Cisco UCS-C220-M5SX 1RU rack server (6 Core)</span>
+                                <strong class="price">$150</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="result_item">
+                            <div class="image">
+                                <img src="image/product.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <span class="name">Cisco UCS-C220-M5SX 1RU rack server (6 Core)</span>
+                                <strong class="price">$150</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="result_item">
+                            <div class="image">
+                                <img src="image/box.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <span class="name">Cisco UCS-C220-M5SX 1RU rack server (6 Core)</span>
+                                <strong class="price">$150</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button class="search_show_sm">
+                <i class="fas fa-search"></i>
+            </button>
+            
+            <div class="header_right">
+                <div class="sp_wrap account">
+                    <a href="login.html" class="sp_btn">
+                        <i class="icn far fa-user-circle"></i>
+                        <div class="sp_right">
+                            <span class="had">Account</span>
+                            <span class="sub">Registar or Login</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <section class="main">
+        <form action="#" class="login_wrap">
+            <div class="panel login_panel">
+                <div class="head">
+                    <h2>Login</h2>
+                </div>
+                <div class="body">
+                    <div class="form_group">
+                        <label for="phone">
+                            Phone
+                        </label>
+                        <input type="number" id="phone" name="phone" class="form_control" placeholder="+8801700000000">
+                    </div>
+                    <div class="form_group">
+                        <label for="password">
+                            Password
+                        </label>
+                        <input type="password" id="password" name="password" class="form_control" placeholder="*****">
+                    </div>
+                    <div class="form_group">
+                        <label class="block_checkbox">
+                            <input class="checkbox x3 success" type="checkbox">
+                            <span>Remember Me</span>
+                        </label>
+                    </div>
+                    <div class="form_group">
+                        <button type="submit" class="nl primary">Login</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer_grid">
+                <div class="part">
+                    <h4 class="footer_title">
+                        SUPPORT
+                    </h4>
+                    <a href="tel:01700000000" class="support_item">
+                        <div class="support_left">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="support_right">
+                            <div>
+                                <span class="small_tit">9AM-8PM</span>
+                                <h4 class="had">01700000000</h4>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="mailto:test-email@gmail.com" class="support_item">
+                        <div class="support_left">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="support_right">
+                            <div>
+                                <span class="small_tit">Email</span>
+                                <h4 class="had">test-email@gmail.com</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="part">
+                    <h4 class="footer_title">
+                        Important links
+                    </h4>
+                    <ul class="imp_links">
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                        <li><a href="#">Link 4</a></li>
+                        <li><a href="#">Link 5</a></li>
+                    </ul>
+                </div>
+                <div class="part">
+                    <h4 class="footer_title">
+                        Important links
+                    </h4>
+                    <ul class="imp_links">
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                        <li><a href="#">Link 4</a></li>
+                        <li><a href="#">Link 5</a></li>
+                    </ul>
+                </div>
+                <div class="part">
+                    <h4 class="footer_title">STAY CONNECTED</h4>
+                    <p class="footer_strong">Star Tech & Engineering Ltd</p>
+                    <p class="footer_light">6th floor, 28 Kazi Nazrul Islam Ave,Navana Zohura Square, Dhaka 1000</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        let carosel     = document.querySelector('.carosel'),
+            items       = carosel.getElementsByClassName('item'),
+            index       = 0,
+            item_arrya  = Object.values(items),
+            length      = item_arrya.length;
+        function start_carosel() {
+            if (index >= length) {
+                index = 0
+            }
+            item_arrya.forEach((element) => {
+                element.classList.remove('active');
+            });
+            item_arrya[index].classList.add('active');
+            index += 1;
+        }
+        setInterval(() => {
+            start_carosel();
+        }, 4000);
+
+        let search_input = document.querySelector('.search_input');
+        let search       = document.querySelector('.search');
+        let search_reault = document.querySelector('.search_reault');
+        let search_show_sm = document.querySelector('.search_show_sm');
+        search_show_sm.addEventListener('click', function() {
+            search.classList.toggle('search_sm');
+        });
+        window.addEventListener('click', function(e) {
+            let parent_match = e.target.offsetParent.parentElement.classList.contains('search');
+            let target_is_input = e.target.classList.contains('search_input');
+            if (parent_match || target_is_input) {
+                let val = search_input.value;
+                if (val) {
+                    search.classList.add('active');
+                    if (window.innerWidth <= 768) {
+                        search.classList.add('search_sm');
+                    }
+                }
+            } else {
+                search.classList.remove('active');
+                if (window.innerWidth <= 768) {
+                    search.classList.add('search_sm');
+                }
+            }
+        });
+        search_input.addEventListener('input', function() {
+            let val = this.value;
+            if (val) {
+                search.classList.add('active');
+                if (window.innerWidth <= 768) {
+                    search.classList.add('search_sm');
+                }
+            } else {
+                search.classList.remove('active');
+            }
+        });
+
+    </script>
+</body>
+</html>

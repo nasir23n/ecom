@@ -1,0 +1,10 @@
+// gatting breakpoint.
+@function breakpoint($nam) {
+	@if map-has-key($breakpoints, $nam) {
+		@return map-get($breakpoints, $nam);
+	}
+
+	@else {
+		@return false;
+	}
+}

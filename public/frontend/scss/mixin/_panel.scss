@@ -1,0 +1,81 @@
+/* Panel design start */
+.panel {
+  background: #fff;
+  min-height: 50px;
+// box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column; 
+
+  &>.header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #dedede; 
+    display: flex;
+    align-items: center;
+    &>* {
+      margin: 0;
+    }
+
+    &:after,
+    &:before {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  &>.body {
+    font-size: 16px;
+    color: #555;
+    padding: 15px;
+  }
+
+  &>.footer {
+    border-top: 1px solid #dedede;
+    width: 100%;
+    padding: rem(15);
+
+    &:after,
+    &:before {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+}
+
+// .panel {
+
+//   @each $maps, $name in $all_colors {
+//     @each $key, $value in $name {
+//       &.#{$key} {
+//         &>.header {
+//           background: $value;
+//           color: #ffffff;
+//           border-bottom: rem(1) solid darken($value, 10);
+//         }
+
+//         &>.footer {
+//           background: $value;
+//           color: #ffffff;
+//           border-top: rem(1) solid darken($value, 10);
+//         }
+
+//         &.fill {
+//           &>.body {
+//             background: darken($value, 5);
+//             color: #ffffff;
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   &.yellow>.header,
+//   &.yellow>.footer {
+//     color: #333333 !important;
+//   }
+// }
+

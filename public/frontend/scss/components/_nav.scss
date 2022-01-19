@@ -1,0 +1,163 @@
+
+.header {
+    position: relative;
+    background: #fff;
+    z-index: 999;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    height: var(--nav_height);
+    .nav_bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav_logo {
+        display: flex;
+        padding: 10px 0;
+        margin-right: 50px;
+        font-size: 30px;
+        font-weight: bold;
+        @media (max-width: 768px) {
+            margin-right: 10px;
+        }
+    }
+    .nav_con {
+        display: flex;
+		margin-left: auto;
+        justify-content: flex-end;
+		width: 100%;
+		flex: 0 0 1;
+        padding: 10px 0;
+        @media (max-width: 576px) {
+            .nav_icn {
+                display: none;
+            }
+            .product_search_toggle {
+                display: block;
+            }
+        }
+    }
+    .product_search {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        @media (max-width: 576px) {
+            display: none;
+        }
+        & .form {
+            display: flex;
+            flex: 1;
+            max-width: 500px;
+            margin: 0 5px;
+            .nav_search {
+                flex: 1;
+                border: 1px solid var(--fave);
+                height: 45px;
+                padding: 0 10px;
+                background: #fff;
+            }
+            .nav_s_submit {
+                border: none;
+                font-size: 18px;
+                height: 45px;
+                width: 45px;
+                background: var(--fave);
+                color: #f7f7f7;
+            }
+        }
+    }
+}
+
+.nav_icn {
+    position: relative;
+    margin-left: 10px; 
+    .crf {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        margin: 0 5px;
+        color: #222222;
+        background: transparent;
+        
+        &:hover~.nav_icn {
+            background: #eee;
+        }
+
+        & .bdg {
+            position: absolute;
+            top: 0px;
+            right: 0;
+            min-width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #f7f7f7;
+            background: var(--fave);
+            box-shadow: 0 0 0 2px #eee;
+            border-radius: 50px;
+            padding: 5px;
+            font-size: 12px;
+        }
+    }
+    .drop_element {
+        top: calc(100% + 15px);
+        border-radius: 0 0 6px 6px;
+
+        li {
+            a {
+                &:hover {
+                    color: var(--fave);
+                    background: transparentize($fave, 0.9);
+                }
+            }
+        }
+    }
+    // This is search icon button. and will display on mobile view, when original search bar will hide.
+    &.product_search_toggle {
+        display: none;
+        @media (max-width: 576px) {
+            display: block;
+        }
+    }
+}
+
+.mobile_nav_footer {
+    display: none;
+    width: 100%;
+    height: var(--nav_height);
+    padding: 10px 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    z-index: 999;
+    justify-content: space-around;
+    box-shadow: 0 -3px 2px rgba(0, 0, 0, 0.2);
+    .drop_element {
+        position: fixed;
+        width: 100%;
+        height: calc(100% - (var(--nav_height) * 2));
+        top: var(--nav_height);
+        box-shadow: none;
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+    }
+    .nav_icn {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .mobile_nav_footer {
+        display: flex;
+    }
+    body {
+        padding-bottom: 60px;
+    }
+}

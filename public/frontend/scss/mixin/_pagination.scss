@@ -1,0 +1,39 @@
+.pagination {
+    display: flex;
+
+    & li {
+        border: 1px solid #dddddd;
+        margin-left: -1px;
+        overflow: hidden;
+        background: #fff;
+
+        &:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+
+        &:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+
+        &.active,
+        &.disabled,
+        & a {
+            display: inline-block;
+            color: var(--fave);
+            padding: 7px 15px;
+            transition: all 0.3s ease-in-out;
+            user-select: none;
+            user-select: none;
+            &:not(.active):hover {
+                background: #f0f0f0;
+            }
+        }
+        &.disabled {
+            cursor: not-allowed;
+        }
+        &.active {
+            background: var(--fave);
+            color: #fff;
+        }
+    }
+}
