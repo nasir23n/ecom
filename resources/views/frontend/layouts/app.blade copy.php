@@ -91,6 +91,7 @@ let search_show_sm = document.querySelector('.search_show_sm');
 search_show_sm.addEventListener('click', function() {
     search.classList.toggle('search_sm');
 });
+
 let asset = '{{ asset("") }}';
 function highlight(inp_text, string) {
     let searched = string.trim();
@@ -102,6 +103,7 @@ function highlight(inp_text, string) {
     }
     return text;
 }
+
 let interval;
 search_input.addEventListener('input', function() {
     let val = this.value;

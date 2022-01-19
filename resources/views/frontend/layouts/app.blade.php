@@ -28,10 +28,88 @@ if (Auth::check()) {
             <div class="nav_con">
                 <div class="product_search">
                     <div class="form">
-                        <input class="nav_search" type="text" name="nav_search" placeholder="Search">
-                        <button class="nav_s_submit" type="submit"><i class="fa fa-search"></i></button>
+                        <input class="nav_search" type="search" id="search_input" placeholder="Search">
+                        <button class="nav_s_submit"><i class="fa fa-search"></i></button>
+                        <div class="search_reault">
+                            <div class="result_body" id="search_result">
+                                <a href="#" class="result_item">
+                                    <div class="image">
+                                        <img src="{{ asset('frontend/image/product1.jpg') }}" alt="">
+                                    </div>
+                                    <div class="info">
+                                        <span class="name">Cisco UCS-C220-M5SX 1RU rack server (6 Core)</span>
+                                        <strong class="price">$150</strong>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="search_over"></div>
+                        </div>
                     </div>
                 </div>
+                
+                <script>
+                    function highlight(inp_text, string) {
+                        let searched = string.trim();
+                        let text = inp_text;
+                        if (searched !== "") {
+                            let re = new RegExp(searched,"gi"); // search for all instances
+                            let newText = text.replace(re, `<span class="highlight">${searched}</span>`);
+                            text = newText;
+                        }
+                        return text;
+                    }
+                    let interval,
+                        search_input    = document.getElementById('search_input'),
+                        search_result   = document.querySelector('.product_search')
+                        asset           = '{{ asset("") }}';
+                    search_input.addEventListener('input', function() {
+                        let val = this.value;
+                        clearTimeout(interval);
+                        if (val) {
+                            console.log(val);
+                            search_result.classList.add('active');
+                            if (window.innerWidth <= 768) {
+                                search_result.classList.add('search_sm');
+                            }
+                            interval = setTimeout(() => {
+                                axios.get('{{ route("product.search") }}', {
+                                    params: {
+                                        search: val,
+                                    }
+                                })
+                                .then(response => {
+                                    let data = response.data;
+                                    if (data.length > 0) {
+                                        let htm = '';
+                                        data.forEach((item) => {
+                                            htm += `
+                                                <a href="${asset}product/details/${item.id}/${item.name.replaceAll(' ', '_')}" class="result_item">
+                                                    <div class="image"> 
+                                                        <img src="${asset}frontend/products/${item.image}" alt="${item.name}">
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="name">${highlight(item.name, val)}</span>
+                                                        <strong class="price">${item.regular_price}TK</strong>
+                                                    </div>
+                                                </a>
+                                            `;
+                                        });
+                                        $('#search_result').html(htm);
+                                    } else {
+                                        $('#search_result').html('<h2>No Product Found</h2>')
+                                    }
+                                })
+                                .catch(error => console.log(error));
+                            }, 200);
+                            
+                        } else {
+                            search_result.classList.remove('active');
+                        }
+                    });
+                    // $('.search_over').click(function() {
+                    //     search.classList.remove('active');
+                    // });
+                </script>
                 <div class="nav_icn product_search_toggle">
                     <button class="crf" id="src_fld_o_c">
                         <i class="fa fa-search"></i>
