@@ -36,6 +36,11 @@ Route::get('order/confirm', [OrderController::class, 'index'])->name('order.conf
 Route::get('order/{order}/edit', [OrderController::class, 'order_edit'])->name('order.edit');
 Route::post('order/checkout', [OrderController::class, 'checkout'])->name('order.checkout');
 Auth::routes();
+
+Route::get('/dashboard', function() {
+    return view('frontend.user.dashboard');
+})->name('user.dashboard');
+
 include_once __DIR__."/backend.php";
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

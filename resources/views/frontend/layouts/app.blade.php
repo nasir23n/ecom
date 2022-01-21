@@ -139,7 +139,7 @@ if (Auth::check()) {
                             </button>
                             <ul class="drop_element drop_right">
                                 <li>
-                                    <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                    <a href="{{ route('user.dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fas fa-user-secret"></i> Profile</a>

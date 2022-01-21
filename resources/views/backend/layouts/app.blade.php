@@ -50,6 +50,16 @@
                         </a>
                     </li>
                     <li class="aside_drop">
+                        <a href="javascript:void(0)" class="aside_drop_btn wev_effect @isset($category_active) {{ $category_active }} @endisset">
+                            <i class="far aside_icon fa-newspaper"></i>
+                            Category
+                        </a>
+                        <ul>
+                            <li><a class="wev_effect @isset($category_add_active) {{ $category_add_active }} @endisset" href="{{ route('category.create') }}">Add Category</a></li>
+                            <li><a class="wev_effect @isset($category_all_active) {{ $category_all_active }} @endisset" href="{{ route('category.index') }}">All Category</a></li>
+                        </ul>
+                    </li>
+                    <li class="aside_drop">
                         <a href="javascript:void(0)" class="aside_drop_btn wev_effect @isset($product_active) {{ $product_active }} @endisset">
                             <i class="aside_icon fas fa-shopping-basket"></i>
                             Product
@@ -57,17 +67,6 @@
                         <ul>
                             <li><a class="wev_effect @isset($product_add_active) {{ $product_add_active }} @endisset" href="{{ route('product.add') }}">Add Product</a></li>
                             <li><a class="wev_effect @isset($product_all_active) {{ $product_all_active }} @endisset" href="{{ route('product.all') }}">All Product</a></li>
-                        </ul>
-                    </li>
-                    <li class="aside_drop">
-                        <a href="javascript:void(0)" class="aside_drop_btn wev_effect ">
-                            <i class="far aside_icon fa-newspaper"></i>
-                            News
-                        </a>
-                        <ul>
-                            <li><a class="wev_effect " href="#">Add News</a></li>
-                            <li><a class="wev_effect " href="#">All News</a></li> 
-                            <li><a class="wev_effect " href="#">Drafed News</a></li>
                         </ul>
                     </li>
                     <li class="aside_drop">

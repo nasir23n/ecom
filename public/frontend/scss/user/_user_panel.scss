@@ -1,0 +1,149 @@
+.user_container {
+    width: calc(100% - 10px);
+    margin: 0 auto;
+    @media (min-width: 1320px) {
+        max-width: 1320px;
+    }
+}
+.user_wrap {
+    --aside_width: 200px;
+    border: 1px solid #ddd;
+    background: #fff;
+    margin-top: 80px;
+    display: flex;
+    min-height: 400px;
+    position: relative;
+    .aside {
+        width: var(--aside_width);
+        height: 100%;
+        border-right: 1px solid #ddd;
+        transition: all 0.3s ease-in-out;
+        left: 0;
+        position: absolute;
+        .profile_wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            .profile {
+                --profile: 100px;
+                width: var(--profile);
+                height: var(--profile);
+                border-radius: 50%;
+                overflow: hidden;
+                .img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 2px solid #ddd;
+                }
+            }
+            .name {
+                text-align: center;
+                padding: 5px 0 0;
+                font-size: 20px;
+                font-weight: bold;
+                margin: 0;
+            }
+            .email {
+                text-align: center;
+                margin-bottom: 5px;
+                color: #777;
+            }
+        }
+        .user_links {
+            margin: 0;
+            .items {
+                .links {
+                    display: block;
+                    border-bottom: 1px solid #eee;
+                    padding: 10px;
+                    text-decoration: none;
+                    transition: all 0.3s ease-in-out;
+                    &:hover {
+                        background: #eee;
+                        padding-left: 15px;
+                    }
+                    &.active {
+                        background: transparentize($fave, 0.8);
+                    }
+                }
+            }
+        }
+        @media (max-width: 992px) {
+            &, &.active {
+                left: -100%;
+            }
+        }
+    }
+    .content {
+        --head: 50px;
+        padding-left: var(--aside_width);
+        transition: all 0.3s ease-in-out;
+        flex: 1;
+        overflow: hidden;
+        .head {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+            display: flex;
+            gap: 10px;
+            min-width: 250px;
+            & * {
+                margin: 0;
+            }
+            .aside_toggle {
+                --aside_toggle_width: 35px;
+                width: var(--aside_toggle_width);
+                height: var(--aside_toggle_width);
+                background: #eee;
+                border-radius: 4px;
+                color: var(--fave);
+                font-size: 1.1rem;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .open, .close {
+                    position: absolute;
+                    transition: all 0.3s ease-in-out;
+                }
+                .open {
+                    transform: scale(1);
+                }
+                .close {
+                    transform: scale(0);
+                }
+                @media (min-width: 992px) {
+                    display: none;
+                }
+            }
+        }
+        .content_body {
+            padding: 10px;
+            width: 100%;
+        }
+        @media (max-width: 992px) {
+            padding-left: 0;
+        }
+    }
+    &.active {
+        .content {
+            margin-left: var(--aside_width);
+        }
+        .aside {
+            left: 0;
+        }
+        .aside_toggle {
+            .close {
+                transform: scale(1) !important;
+            }
+            .open {
+                transform: scale(0) !important;
+                visibility: hidden;
+            }
+        }
+    }
+}

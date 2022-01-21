@@ -31,7 +31,7 @@ class OrderController extends Controller
                                             'p.image',
                                         ]);
 // dd($this->data['orders']);
-        return view('frontend.pages.show_order', $this->data);
+        return view('frontend.user.order', $this->data);
     }
     public function order_edit(Order $order) {
         return $order;

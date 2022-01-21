@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Catagory extends Model
 {
     use HasFactory;
+    public $fillable = [
+        'name',
+        'slug',
+        'image',
+    ];
 }

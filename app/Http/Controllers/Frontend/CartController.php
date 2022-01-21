@@ -63,6 +63,6 @@ class CartController extends Controller
                                                 'p.*'
                                             ]);
         }
-        return view('frontend.pages.cart', $this->data);
+        return view('frontend.user.cart', $this->data);
     }
 }

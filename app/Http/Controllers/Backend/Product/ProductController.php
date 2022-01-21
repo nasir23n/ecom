@@ -9,13 +9,10 @@ use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class ProductController extends Controller
-{
-
+class ProductController extends Controller {
     public function __construct() {
         $this->middleware('auth:admin');
         $this->data['product_active'] = 'active';
-        
     }
     public function index() {
         $this->data['product_add_active'] = 'active';

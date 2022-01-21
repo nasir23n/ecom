@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\Auth\LoginController;
+use App\Http\Controllers\Backend\Category\CategoryController;
 use App\Http\Controllers\Backend\Deshboard\DeshboardController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,7 @@ Route::prefix('admin')->group(function() {
     Route::post('product/{product}/delete_multi', [ProductController::class, 'delete_multi'])->name('delete_multi');
     Route::post('product/{product}/delete_single', [ProductController::class, 'delete_single'])->name('delete_single');
 
+    Route::resource('category', CategoryController::class);
     // Route::post('remove', [ProductController::class, 'remove'])->name('remove');
     // Route::post('product/add', [ProductController::class, 'store']);
     // Route::get('product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');

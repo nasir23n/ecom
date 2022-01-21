@@ -1738,6 +1738,157 @@ input[type=file].form_control {
   max-width: 400px;
 }
 
+.user_container {
+  width: calc(100% - 10px);
+  margin: 0 auto;
+}
+@media (min-width: 1320px) {
+  .user_container {
+    max-width: 1320px;
+  }
+}
+
+.user_wrap {
+  --aside_width: 200px;
+  border: 1px solid #ddd;
+  background: #fff;
+  margin-top: 80px;
+  display: flex;
+  min-height: 400px;
+  position: relative;
+}
+.user_wrap .aside {
+  width: var(--aside_width);
+  height: 100%;
+  border-right: 1px solid #ddd;
+  transition: all 0.3s ease-in-out;
+  left: 0;
+  position: absolute;
+}
+.user_wrap .aside .profile_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+.user_wrap .aside .profile_wrap .profile {
+  --profile: 100px;
+  width: var(--profile);
+  height: var(--profile);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user_wrap .aside .profile_wrap .profile .img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+.user_wrap .aside .profile_wrap .name {
+  text-align: center;
+  padding: 5px 0 0;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+.user_wrap .aside .profile_wrap .email {
+  text-align: center;
+  margin-bottom: 5px;
+  color: #777;
+}
+.user_wrap .aside .user_links {
+  margin: 0;
+}
+.user_wrap .aside .user_links .items .links {
+  display: block;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.user_wrap .aside .user_links .items .links:hover {
+  background: #eee;
+  padding-left: 15px;
+}
+.user_wrap .aside .user_links .items .links.active {
+  background: rgba(0, 166, 81, 0.2);
+}
+@media (max-width: 992px) {
+  .user_wrap .aside, .user_wrap .aside.active {
+    left: -100%;
+  }
+}
+.user_wrap .content {
+  --head: 50px;
+  padding-left: var(--aside_width);
+  transition: all 0.3s ease-in-out;
+  flex: 1;
+  overflow: hidden;
+}
+.user_wrap .content .head {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  min-width: 250px;
+}
+.user_wrap .content .head * {
+  margin: 0;
+}
+.user_wrap .content .head .aside_toggle {
+  --aside_toggle_width: 35px;
+  width: var(--aside_toggle_width);
+  height: var(--aside_toggle_width);
+  background: #eee;
+  border-radius: 4px;
+  color: var(--fave);
+  font-size: 1.1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_wrap .content .head .aside_toggle .open, .user_wrap .content .head .aside_toggle .close {
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+.user_wrap .content .head .aside_toggle .open {
+  transform: scale(1);
+}
+.user_wrap .content .head .aside_toggle .close {
+  transform: scale(0);
+}
+@media (min-width: 992px) {
+  .user_wrap .content .head .aside_toggle {
+    display: none;
+  }
+}
+.user_wrap .content .content_body {
+  padding: 10px;
+  width: 100%;
+}
+@media (max-width: 992px) {
+  .user_wrap .content {
+    padding-left: 0;
+  }
+}
+.user_wrap.active .content {
+  margin-left: var(--aside_width);
+}
+.user_wrap.active .aside {
+  left: 0;
+}
+.user_wrap.active .aside_toggle .close {
+  transform: scale(1) !important;
+}
+.user_wrap.active .aside_toggle .open {
+  transform: scale(0) !important;
+  visibility: hidden;
+}
+
 @media (max-width: 768px) {
   .card_container {
     padding-left: 0;

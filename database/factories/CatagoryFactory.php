@@ -19,7 +19,7 @@ class CatagoryFactory extends Factory
         return [
             'name' => $category_name,
             'slug' => $slug,
-            'image' => 'frontend/image/product3.jpg',
+            'image' => 'frontend/category/category'.rand(0, 4).'.jpg',
         ];
     }
 }
