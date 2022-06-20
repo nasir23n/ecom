@@ -26,7 +26,6 @@ Route::prefix('admin')->group(function() {
     Route::get('product/{product}/publish', [ProductController::class, 'publish'])->name('product.publish');
     Route::post('product/{product}/publish', [ProductController::class, 'publish_product']);
 
-
     Route::get('product/all', [ProductController::class, 'all'])->name('product.all');
     Route::post('product/{product}/single_upload', [ProductController::class, 'single_upload'])->name('single_upload');
     Route::post('product/{product}/multi_upload', [ProductController::class, 'multi_upload'])->name('multi_upload');
