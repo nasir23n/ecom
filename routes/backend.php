@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\Deshboard\DashboardController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\UnitController;
+use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function() {
@@ -25,6 +26,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth:admin
     Route::get('/orders', [OrderController::class, 'index'])->name('orders');
     Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
     Route::post('/orders/{order}', [OrderController::class, 'confirm'])->name('orders.confirm');
+
+    Route::get('users', [UserController::class, 'index'])->name('users');
     // Route::group(['as' => 'category.', 'prefix' => 'category'], function() {
     //     Route::get('/index', [CategoryController::class, 'index'])->name('index');
     //     Route::get('/create', [CategoryController::class, 'create'])->name('create');

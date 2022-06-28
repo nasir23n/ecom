@@ -16,7 +16,7 @@
                     <div class="body">
                         <ul class="catagory_list">
                             @foreach ($catagories as $item)
-                            <li><a class="@if($catagory->id === $item->id) {{ 'active' }} @endif" href="{{ route('catagory', $item->name) }}">{{ $item->name }}</a></li>
+                            <li><a class="@if($catagory->id === $item->id) {{ 'active' }} @endif" href="{{ route('catagory', $item->slug) }}">{{ $item->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -92,9 +92,11 @@
                 </div>
                 @php
                     $arr = array();
-                    foreach ($cart as $key => $value) {
-                        array_push($arr, $value->id);
-                    } 
+                    if ($cart) {
+                        foreach ($cart as $key => $value) {
+                            array_push($arr, $value['id']);
+                        } 
+                    }
                 @endphp
                 <div class="filter_grid" id="products">
                     @foreach ($products as $item)

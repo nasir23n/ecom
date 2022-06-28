@@ -20,6 +20,7 @@ class ProductDetailsController extends Controller
             'search' => 'required'
         ]);
         $param = $request->search;
+        
         // Product::where('name', '')
         $result = Product::where('name', 'LIKE', "%$param%")->limit(20)->get();
         return $result;

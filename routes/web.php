@@ -24,8 +24,8 @@ Route::get('/info', function() {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('product/{product:slug}', [ProductDetailsController::class, 'index'])->name('product.details');
-Route::get('product/search/{search?}', [ProductDetailsController::class, 'search'])->name('product.search');
-Route::get('catagory/{name}', [FilterController::class, 'catagory'])->name('catagory');
+Route::get('product/{search?}', [ProductDetailsController::class, 'search'])->name('product.search');
+Route::get('catagory/{category:slug}', [FilterController::class, 'catagory'])->name('catagory');
 
 Route::post('price/filter', [FilterController::class, 'filter'])->name('filter');
 
@@ -34,10 +34,14 @@ Route::post('product/cart/remove', [CartController::class, 'remove'])->name('car
 Route::post('product/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::get('cart', [CartController::class, 'show'])->name('cart');
 
-Route::get('order', [OrderController::class, 'show'])->name('order');
-Route::get('order/confirm', [OrderController::class, 'index'])->name('order.confirm');
-Route::get('order/{order}/edit', [OrderController::class, 'order_edit'])->name('order.edit');
-Route::post('order/checkout', [OrderController::class, 'checkout'])->name('order.checkout');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('order', [OrderController::class, 'show'])->name('order');
+    Route::get('order/confirm', [OrderController::class, 'index'])->name('order.confirm');
+    Route::get('order/{order}/edit', [OrderController::class, 'order_edit'])->name('order.edit');
+    Route::post('order/checkout', [OrderController::class, 'checkout'])->name('order.checkout');
+});
+
 Auth::routes();
 
 Route::get('/dashboard', function() {

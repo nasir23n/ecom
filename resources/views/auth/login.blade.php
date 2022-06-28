@@ -13,7 +13,7 @@
                     <label for="email">
                         Email
                     </label>
-                    <input type="email" id="email" name="email" class="form_control @error('email') invalid @enderror" placeholder="+8801700000000" value="{{ old('email') }}">
+                    <input type="email" id="email" name="email" class="form_control @error('email') invalid @enderror" placeholder="+8801700000000" value="user@user.com">
                     @error('email')
                         <span class="invalid_message">
                             <strong>{{ $message }}</strong>
@@ -24,7 +24,7 @@
                     <label for="password">
                         Password
                     </label>
-                    <input type="password" id="password" name="password" class="form_control" placeholder="*****">
+                    <input type="password" id="password" name="password" class="form_control" value="password">
                 </div>
                 <div class="form_group">
                     <label class="block_checkbox">

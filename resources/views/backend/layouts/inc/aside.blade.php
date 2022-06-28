@@ -19,6 +19,12 @@
                     Deshboard
                 </a>
             </li>
+            <li>
+                <a class="{{ Route::is('admin.users') ? 'active' : '' }}" href="{{ route('admin.users') }}">
+                    <i class="far aside_icon fa-user-circle"></i>
+                    Users
+                </a>
+            </li>
             <li class="aside_drop">
                 <a href="javascript:void(0)" class="aside_drop_btn {{ (Route::is('admin.products*') ||Route::is('admin.brands*') || Route::is('admin.categories*') || Route::is('admin.units*')) ? 'active' : '' }}">
                     <i class="aside_icon fa fa-cubes"></i>

@@ -60,7 +60,7 @@ $cart_item = $cart ? $cart : [];
                     let interval,
                         search_input    = document.getElementById('search_input'),
                         search_result   = document.querySelector('.product_search')
-                        asset           = '{{ asset("") }}';
+                        url           = '{{ url("") }}';
                     search_input.addEventListener('input', function() {
                         let val = this.value;
                         clearTimeout(interval);
@@ -78,17 +78,18 @@ $cart_item = $cart ? $cart : [];
                                 })
                                 .then(response => {
                                     let data = response.data;
+                                    console.log(data);
                                     if (data.length > 0) {
                                         let htm = '';
                                         data.forEach((item) => {
                                             htm += `
-                                                <a href="${asset}product/details/${item.id}/${item.name.replaceAll(' ', '_')}" class="result_item">
+                                                <a href="${url}/product/${item.slug}" class="result_item">
                                                     <div class="image"> 
-                                                        <img src="${asset}frontend/products/${item.image}" alt="${item.name}">
+                                                        <img src="${url}/${item.image}" alt="${item.name}">
                                                     </div>
                                                     <div class="info">
                                                         <span class="name">${highlight(item.name, val)}</span>
-                                                        <strong class="price">${item.regular_price}TK</strong>
+                                                        <strong class="price">${item.price}TK</strong>
                                                     </div>
                                                 </a>
                                             `;
@@ -134,7 +135,11 @@ $cart_item = $cart ? $cart : [];
                     @else
                         <div class="drop_container">
                             <button class="crf drop">
-                                <i class="far fa-user-circle"></i>
+                                @if (!file_exists(auth()->user()->image))
+                                    <i class="far fa-user-circle"></i>
+                                @else
+                                    <img width="50" height="50" src="{{ asset(auth()->user()->image) }}" alt="" style="border-radius: 50%;object-fit: cover;">
+                                @endif
                             </button>
                             <ul class="drop_element drop_right">
                                 <li>

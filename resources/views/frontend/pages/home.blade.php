@@ -10,7 +10,7 @@
         </div>
         <div class="catagory_grid"> 
             @foreach ($catagories as $item)    
-            <a href="{{ route('catagory', $item->name) }}" class="catagory">
+            <a href="{{ route('catagory', $item) }}" class="catagory">
                 <span class="catagory_icon">
                     <img src="{{ asset($item->image) }}" height="50" alt="">
                 </span>
@@ -30,8 +30,10 @@
                 @php
                     $arr = array();
                     $cart_item = Session::get('cart');
-                    foreach ($cart_item as $key => $value) {
-                        array_push($arr, $key);
+                    if ($cart_item) {
+                        foreach ($cart_item as $key => $value) {
+                            array_push($arr, $key);
+                        }
                     }
                 @endphp
             </p>

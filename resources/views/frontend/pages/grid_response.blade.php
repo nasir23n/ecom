@@ -1,9 +1,11 @@
 
 @php
 $arr = array();
-foreach ($cart as $key => $value) {
-    array_push($arr, $value->id);
-} 
+if ($cart) {
+    foreach ($cart as $key => $value) {
+        array_push($arr, $value['id']);
+    } 
+}
 @endphp
 
 @foreach ($products as $item)
