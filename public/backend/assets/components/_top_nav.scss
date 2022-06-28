@@ -1,0 +1,181 @@
+
+.top_nav {
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - var(--aside) - 1px);
+    border-bottom: 1px solid #dddddd;
+    // border-left: 1px solid #dddddd;
+    height: var(--top_nav_height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 101;
+    transition: $transition;
+    box-shadow: 0 4px 4px 0 rgba(230, 230, 230, 0.15);
+    & .hidden_home {
+        position: absolute;
+        background: transparent;
+        height: var(--top_nav_height);
+        padding: 10px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #333333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: -100%;
+        z-index: -1;
+        transition: $transition;
+        opacity: 0;
+        &:hover {
+            text-decoration: none;
+            background: var(--light_gray);
+        }
+    }
+    .notice {
+        font-size: .6rem;
+        font-weight: 300;
+        padding: 3px 5px;
+        position: absolute;
+        right: 5px;
+        top: 3px;
+    }
+
+    &>.top_nav_toggle {
+        background: #ffffff;
+        width: var(--top_nav_height);
+        height: var(--top_nav_height);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        border-bottom: 1px solid #dddddd;
+        transition: $transition;
+
+        &:hover,
+        &.active {
+            background: var(--light_gray);
+        }
+
+        &:active {
+            background: var(--light_gray_active);
+        }
+
+        & span {
+            width: 30px;
+            height: 2px;
+            background: #333333;
+            display: block;
+            margin-left: 9px;
+            transition: $transition;
+
+            &:nth-child(1) {
+                width: 20px;
+            }
+
+            &:nth-child(2) {
+                width: 25px;
+            }
+
+            &:not(:first-child) {
+                margin-top: 8px;
+            }
+        }
+
+        &.active {
+            & span {
+                &:nth-child(1) {
+                    transform: rotate(45deg);
+                    width: 30px;
+                }
+
+                &:nth-child(2) {
+                    width: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg);
+                    width: 30px;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            background: var(--light_gray);
+
+            & span {
+                &:nth-child(1) {
+                    transform: rotate(45deg);
+                    width: 30px;
+                }
+
+                &:nth-child(2) {
+                    width: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg);
+                    width: 30px;
+                }
+            }
+
+            &.active {
+                & span {
+                    &:nth-child(1) {
+                        transform: rotate(0deg);
+                        width: 20px;
+                    }
+
+                    &:nth-child(2) {
+                        width: 25px;
+                    }
+
+                    &:nth-child(3) {
+                        transform: rotate(0deg);
+                        width: 30px;
+                    }
+                }
+            }
+        }
+
+        // responsive this
+    }
+
+    &.active {
+        width: 100%;
+        & .hidden_home {
+            left: 60px;
+            opacity: 1;
+        }
+    }
+    @media (max-width: 768px) {
+        width: 100%;
+        & .hidden_home {
+            left: 60px;
+            opacity: 1;
+        }
+    }
+    // end top_nav_toggle
+    
+    // right setting drop 
+    & .setting_drop {
+        & .drop {
+            width: var(--top_nav_height);
+            height: var(--top_nav_height);
+            font-size: 20px;
+            color: #444444;
+            text-shadow: 1px 1px 2px #525252;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                background: #eeeeee;
+            }
+        }
+        & .drop_element {
+            margin-right: 8px;
+        }
+    }
+}
+

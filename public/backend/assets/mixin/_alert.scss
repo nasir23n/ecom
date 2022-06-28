@@ -1,0 +1,82 @@
+/* alert's */
+
+.alert {
+	position: relative;
+	width: 100%;
+	padding: 15px;
+    margin: 10px 0;
+	z-index: 1;
+	border-radius: 4px;
+	border: rem(1) solid make_color('g3');
+	&.closeable {
+		padding-right: 55px;
+	}
+	&.animated {
+		animation-duration: 0.5s !important;
+	}
+	&.fade {
+		opacity: 0;
+		animation-name: alfad;
+		animation-duration: .5s !important;
+	}
+	@keyframes alfad {
+		0% { opacity: 1; }
+		100% { opacity: 0; }
+	}
+	& * {
+		display: inline-block !important;
+	}
+
+	&.shadow_none {
+		box-shadow: none !important;
+	}
+
+	.close {
+		cursor: pointer;
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		top: 0;
+		right: 0;
+		font-size: 24px;
+		opacity: 0.6;
+		transition: all 0.3s ease-in-out;
+		text-shadow: 0 1px 0 #fff;
+		background: transparent;
+
+		&:hover {
+			opacity: 1 !important;
+		}
+	}
+
+	// theme 
+	@each $key, $value in $brand {
+		&.#{$key} {
+			background: lighten($value, 35);
+			color: darken($value, 40);
+			border-color: lighten($value, 20);
+		}
+	}
+	// f53a5f f5375d
+	// alert theme
+	// @each $key, $value in $brand {
+	// 	&.light.#{$key} {
+	// 		// background: #{$value};
+	// 		background: lighten($value, 35);
+	// 		color: darken($value, 20) !important;
+	// 		border-color: lighten($value, 35);
+	// 	}
+	// 	&.#{$key} {
+	// 		&.bordered {
+	// 			background: lighten($value, 35);
+	// 			color: darken($value, 20) !important;
+	// 			border-top: rem(3) solid lighten($value, 15) !important;
+	// 			border-bottom: rem(3) solid lighten($value, 15) !important;
+	// 			border-left: 0 !important;
+	// 			border-right: 0 !important;
+	// 		}
+	// 	}
+	// } 
+	// alert end
+}
+

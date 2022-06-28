@@ -34,11 +34,11 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             switch ($guard) {  
                 case 'admin':
-                    return redirect()->route('admin.deshboard');
+                    return redirect()->route('admin.dashboard');
                     break;
 
                 default:
-                    return redirect()->route('user.deshboard');
+                    return redirect()->route('user.dashboard');
                     break;
             }
         }
