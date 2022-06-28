@@ -12,63 +12,64 @@
     <div class="card text-bg-blue-700 shadow">
         <div class="card-body widget_body">
             <div class="content">
-                <p>Total customer</p>
-                <strong>200 customers</strong>
+                <p>Total User</p>
+                <strong>{{ $total_user }} customers</strong>
             </div>
             <div class="icon">
                 <i class="fa fa-users"></i>
             </div>
         </div>
         <div class="card-footer widget_footer">
-            <a href="#">All customer  &nbsp;<i class="fa fa-arrow-circle-right"></i> </a>
-        </div>
-    </div>
-    <div class="card text-bg-orange-500 shadow">
-        <div class="card-body widget_body">
-            <div class="content">
-                <p>Total servicing</p>
-                <strong>501210TK</strong>
-            </div>
-            <div class="icon">
-                <i class="fa fa-users"></i>
-            </div>
-        </div>
-        <div class="card-footer widget_footer">
-            <a href="#">All servicing  &nbsp;<i class="fa fa-arrow-circle-right"></i> </a>
+            <a href="{{ route('admin.users') }}">All User  &nbsp;<i class="fa fa-arrow-circle-right"></i> </a>
         </div>
     </div>
     <div class="card text-bg-purple-600 shadow">
         <div class="card-body widget_body">
             <div class="content">
-                <p>Total servicing</p>
-                <strong>501210TK</strong>
+                <p>Total Order</p>
+                <strong>{{ $total_order }}TK</strong>
+            </div>
+            <div class="icon">
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+        </div>
+        <div class="card-footer widget_footer">
+            <a href="{{ route('admin.orders') }}">All Order &nbsp;<i class="fa fa-arrow-circle-right"></i> </a>
+        </div>
+    </div>
+    <div class="card text-bg-orange-500 shadow">
+        <div class="card-body widget_body">
+            <div class="content">
+                <p>Today Order</p>
+                <strong>{{ $today_order }}TK</strong>
             </div>
             <div class="icon">
                 <i class="fa fa-users"></i>
             </div>
         </div>
         <div class="card-footer widget_footer">
-            <a href="#">All sell &nbsp;<i class="fa fa-arrow-circle-right"></i> </a>
+            <a href="{{ route('admin.orders') }}">All Order  &nbsp;<i class="fa fa-arrow-circle-right"></i> </a>
         </div>
     </div>
     <div class="card text-bg-green-700 shadow">
         <div class="card-body widget_body">
             <div class="content">
-                <p>Total servicing</p>
-                <strong>501210TK</strong>
+                <p>Total Product</p>
+                <strong>{{ $total_product }} Product</strong>
             </div>
             <div class="icon">
                 <i class="fa fa-users"></i>
             </div>
         </div>
         <div class="card-footer widget_footer">
-            <a href="#">All sell &nbsp;<i class="fa fa-arrow-circle-right"></i> </a>
+            <a href="{{ route('admin.products.index') }}">All Product &nbsp;<i class="fa fa-arrow-circle-right"></i> </a>
         </div>
     </div>
 </div>
 
 <br>
-<div class="card">
+
+{{-- <div class="card">
     <div class="card-header border-primary" style="border-top: 4px solid;border-bottom: 0;background:transparent;">
         <h4>Servicing this month</h4>
     </div>
@@ -116,7 +117,7 @@
             </table>
         </div>
     </div>
-</div>
+</div> --}}
 
 {{-- 
 <div class="row mb-3 gy-4 gx-4">
@@ -386,38 +387,78 @@
             </div>
         </div>
     </div> <!-- Chart col end -->
-    <div class="col-lg-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="toolbar">
-                    Progress
+    
+</div> --}}
+<div class="card">
+    <div class="card-header">
+        Chart
+    </div>
+    <div class="card-body">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="toolbar">
+                        <h1>{{ $chart1->options['chart_title'] }}</h1>
+                    </div>
+                    <!-- <div id="chart"></div> -->
+                    {!! $chart1->renderHtml() !!}
                 </div>
-                <!-- <div id="chart"></div> -->
-                <canvas id="myChart" width="356" height="178" style="display: block; box-sizing: border-box; height: 178px; width: 356px;"></canvas>
             </div>
         </div>
     </div>
-</div> --}}
-
+</div>
 
 @push('js')
-{{-- <script src="{{ asset('backend/common/js/chart.min.js') }}"></script> --}}
+<script src="{{ asset('backend/common/js/chart.min.js') }}"></script>
+{{-- {!! $chart1->renderChartJsLibrary() !!} --}}
+{!! $chart1->renderJs() !!}
 <script>
-    $('#nl_modal').click(function() {
-        NL_Modal.open({
-            size: 'md',
-            preload: true,
-            body: function(body_class) {
-                body_class.html(`
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem consectetur quisquam assumenda tempore facere repellendus earum officiis amet odit quas, tempora eveniet debitis! Nulla eligendi tempore culpa id laudantium? Adipisci.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem consectetur quisquam assumenda tempore facere repellendus earum officiis amet odit quas, tempora eveniet debitis! Nulla eligendi tempore culpa id laudantium? Adipisci.</p>
-                `);
-            }
-        });
-    });
+    // var orders_this_month = new Chart(ctx, {
+    //     type: 'line',
+    //     data: {
+    //         labels: [
+    //             "2022-06-23",
+    //             "2022-06-24",
+    //             "2022-06-25",
+    //             "2022-06-26",
+    //             "2022-06-27",
+    //             "2022-06-28",
+    //                 ],
+    //     datasets: [
+    //                     {
+    //             label: 'Orders this month',
+    //             data: [
+    //                                         1,
+    //                                         0,
+    //                                         0,
+    //                                         0,
+    //                                         0,
+    //                                         1,
+    //                                 ],
+    //                                                         fill: false,
+    //                                                             borderColor: 'rgba(244, 8, 174, 0.2)',
+    //                                                 borderWidth: 2
+    //         },
+    //                 ]
+    // },
+    // options: {
+    //     tooltips: {
+    //         mode: 'point'
+    //     },
+    //     height: '300px',
+    //                 scales: {
+    //             xAxes: [],
+    //             yAxes: [{
+    //                 ticks: {
+    //                     beginAtZero:true
+    //                 }
+    //             }]
+    //         },
+    //         }
+    // });
     // const ctx = document.getElementById('myChart').getContext('2d');
     // const myChart = new Chart(ctx, {
-    //     type: 'bar',
+    //     type: 'line',
     //     data: {
     //         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     //         datasets: [{

@@ -23,6 +23,7 @@
                     <th>Status</th>
                     <th>Total Order</th>
                     <th>Created At</th>
+                    <th>Created At</th>
                 </tr>
             </thead>
             <tbody>
