@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class CatagoryFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,10 @@ class CatagoryFactory extends Factory
         return [
             'name' => $category_name,
             'slug' => $slug,
-            'image' => 'frontend/category/category'.rand(0, 4).'.jpg',
+            'image' => 'frontend/category/'.rand(1, 10).'.jpg',
+            'details' => $this->faker->text(50),
+            'status' => 1,
         ];
+
     }
 }

@@ -1,27 +1,38 @@
 <?php
 
 use App\Http\Controllers\Backend\Auth\LoginController;
+use App\Http\Controllers\Backend\Brand\BrandController;
 use App\Http\Controllers\Backend\Category\CategoryController;
 use App\Http\Controllers\Backend\Deshboard\DashboardController;
-use App\Http\Controllers\Backend\Product\ProductController;
+use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\UnitController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+Route::group(['as' => 'admin.', 'prefix' => 'admin'], function() {
     Route::get('login', [LoginController::class, 'show_login_form'])->name('login');
     Route::post('login', [LoginController::class, 'login']);
+});
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::resource('brand', BrandController::class);
+    Route::resource('brands', BrandController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('units', UnitController::class);
+    Route::resource('products', ProductController::class);
 
-    Route::group(['as' => 'category.', 'prefix' => 'category'], function() {
-        Route::get('/index', [CategoryController::class, 'index'])->name('index');
-        Route::get('/create', [CategoryController::class, 'create'])->name('create');
-        Route::post('/store', [CategoryController::class, 'store'])->name('store');
-        Route::get('/{category}/edit/', [CategoryController::class, 'edit'])->name('edit');
-        Route::post('/{category}/update/', [CategoryController::class, 'update'])->name('update');
-        Route::delete('/{category}/delete/', [CategoryController::class, 'delete'])->name('delete');
-    });
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+    Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+    Route::post('/orders/{order}', [OrderController::class, 'confirm'])->name('orders.confirm');
+    // Route::group(['as' => 'category.', 'prefix' => 'category'], function() {
+    //     Route::get('/index', [CategoryController::class, 'index'])->name('index');
+    //     Route::get('/create', [CategoryController::class, 'create'])->name('create');
+    //     Route::post('/store', [CategoryController::class, 'store'])->name('store');
+    //     Route::get('/{category}/edit/', [CategoryController::class, 'edit'])->name('edit');
+    //     Route::post('/{category}/update/', [CategoryController::class, 'update'])->name('update');
+    //     Route::delete('/{category}/delete/', [CategoryController::class, 'delete'])->name('delete');
+    // });
 
     // Route::get('/index', [PurchaseController::class, 'index'])->name('index');
     // Route::get('/filter_product', [PurchaseController::class, 'filterProduct'])->name('filter_product');

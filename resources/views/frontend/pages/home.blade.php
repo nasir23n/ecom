@@ -29,9 +29,10 @@
             <p>
                 @php
                     $arr = array();
+                    $cart_item = Session::get('cart');
                     foreach ($cart_item as $key => $value) {
-                        array_push($arr, $value->product_id);
-                    } 
+                        array_push($arr, $key);
+                    }
                 @endphp
             </p>
         </div>

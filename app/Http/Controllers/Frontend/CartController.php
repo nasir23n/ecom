@@ -8,35 +8,51 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
-    private $id;
+    // private $id;
+    public function getCart() {
+        $cart = Session::get('cart');
+        return $cart ? $cart : [];
+    }
     public function store(Request $request) {
         $request->validate([
             'product_id' => 'numeric|required'
         ]);
-        if (Auth::check()) {
-            $cart_item = Cart::where('product_id', $request->product_id)->get();
-        
-            if (count($cart_item) == 0) {
-                Cart::create([
-                    'product_id' => $request->product_id,
-                    'user_id' => $request->user()->id,
-                    'quantity' => 1,
-                ]);
-            }
-            print_r('success');
+        $product = Product::find($request->product_id);
+        $cart = $this->getCart();
+        if (isset($cart[$product->id])) {
+            $cart[$product->id] = [
+                "id" => $product->id,
+                "name" => $product->name,
+                "image" => $product->image,
+                "price" => $product->price,
+                "qty" => $cart[$product->id]['qty']+1,
+            ];
         } else {
-            return response()->json(['message' => 'You are not logged in'], 401);
+            $cart[$product->id] = [
+                "id" => $product->id,
+                "name" => $product->name,
+                "image" => $product->image,
+                "price" => $product->price,
+                "qty" => 1,
+            ];
         }
+        Session::put('cart', $cart);
+
+        return 'success';
     }
     public function remove(Request $request) {
         $request->validate([
             'product_id' => 'numeric|required',
         ]);
-        $cart = Auth::user()->carts()->where('product_id', $request->product_id)->first();
-        $cart->delete();
+        $cart = $this->getCart();
+        if (isset($cart[$request->product_id])) {
+            unset($cart[$request->product_id]);
+        }
+        Session::put('cart', $cart);
         print_r('removed');
     }
     public function update(Request $request) { 
@@ -44,25 +60,24 @@ class CartController extends Controller
             'id' => 'required',
             'qty' => 'required',
         ]);
-        Cart::where('id', $request->id)->update([
-            'quantity' => $request->qty,
-        ]);
+        $product = Product::find($request->id);
+        $cart = $this->getCart();
+        if (isset($cart[$product->id])) {
+            $cart[$product->id] = [
+                "id" => $product->id,
+                "name" => $product->name,
+                "image" => $product->image,
+                "price" => $product->price,
+                "qty" => $request->qty,
+            ];
+        }
+        Session::put('cart', $cart);
         print_r('updated');
     }
 
     public function show() {
-        $this->data['cart_item'] = [];
-        if (Auth::check()) {
-            $this->data['cart_item'] = Auth::user()
-                                            ->carts()
-                                            ->leftJoin('products as p', 'p.id', '=', 'carts.product_id')
-                                            ->get([
-                                                'carts.*',
-                                                'carts.quantity as cart_quantity',
-                                                'carts.id as cart_id',
-                                                'p.*'
-                                            ]);
-        }
+        $this->data['cart_item'] = $this->getCart();
+
         return view('frontend.user.cart', $this->data);
     }
 }

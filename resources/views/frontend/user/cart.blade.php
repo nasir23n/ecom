@@ -22,31 +22,29 @@
                     $total = 0;
                 @endphp
                 @foreach ($cart_item as $item)
-                {{-- @php
-                    dd($item);
-                @endphp --}}
+
                 <tr class="servicing_row" s_id="2">
                     <td class="cart_img">
-                        <img src="{{ asset('frontend/products') }}/{{ $item->image }}" alt="">
+                        <img src="{{ asset($item['image']) }}" alt="">
                     </td>
                     <td>
-                        <a href="{{ route('product.details', ['product' => $item->product_id, 'name' => str_replace(' ', '_', $item->name)]) }}">{{ $item->name }}</a>
+                        <a href="{{ route('product.details', $item['id']) }}">{{ $item['name'] }}</a>
                     </td>
-                    <td>{{ $item->regular_price }}TK</td>
+                    <td>{{ $item['price'] }}TK</td>
                     <td>
                         <div class="quantity_box">
-                            <button class="inc_dec dec" onclick="dec(this, '{{ $item->cart_id }}')"><i class="fas fa-minus"></i></button>
-                            <input type="number" class="inp" min="1" max="5" value="{{ $item->cart_quantity }}" readonly>
-                            <button class="inc_dec inc" onclick="inc(this, '{{ $item->cart_id }}')"><i class="fas fa-plus"></i></button>
+                            <button class="inc_dec dec" onclick="dec(this, '{{ $item['id'] }}')"><i class="fas fa-minus"></i></button>
+                            <input type="number" class="inp" min="1" max="5" value="{{ $item['qty'] }}" readonly>
+                            <button class="inc_dec inc" onclick="inc(this, '{{ $item['id'] }}')"><i class="fas fa-plus"></i></button>
                         </div>
                     </td>
-                    <td>{{ $item->regular_price * $item->cart_quantity }}TK</td>
+                    <td>{{ $item['price'] * $item['qty'] }}TK</td>
                     <td>
-                        <button class="nl" onclick="remove_cart(this, '{{ $item->product_id }}', '{{ $item->regular_price * $item->cart_quantity }}')"><i class="fas fa-times"></i></button>
+                        <button class="nl" onclick="remove_cart(this, '{{ $item['id'] }}', '{{ $item['price'] * $item['qty'] }}')"><i class="fas fa-times"></i></button>
                     </td> 
                 </tr>
                 @php 
-                    $total += $item->regular_price * $item->cart_quantity;
+                    $total += $item['price'] * $item['qty'];
                 @endphp
                 @endforeach
                 <tr class="result">

@@ -108,20 +108,20 @@
                             @foreach ($cart_item as $item)
                             <tr class="servicing_row" s_id="2">
                                 <td class="cart_img">
-                                    <img src="{{ asset('frontend/products') }}/{{ $item->image }}" alt="">
+                                    <img src="{{ asset($item['image']) }}" alt="">
                                 </td>
                                 <td>
-                                    <a href="{{ route('product.details', ['product' => $item->id, 'name' => $item->name]) }}">{{ $item->name }}</a>
+                                    <a href="{{ route('product.details', $item['id']) }}">{{ $item['name'] }}</a>
                                 </td>
-                                <td>{{ $item->regular_price }}TK</td>
-                                <td>{{ $item->cart_quantity }}</td>
-                                <td>{{ $item->regular_price * $item->cart_quantity }}TK</td>
+                                <td>{{ $item['price'] }}TK</td>
+                                <td>{{ $item['qty'] }}</td>
+                                <td>{{ $item['price'] * $item['qty'] }}TK</td>
                                 <td>
-                                    <button type="button" class="nl" onclick="remove_cart(this, '{{ $item->product_id }}', '{{ $item->regular_price * $item->cart_quantity }}')"><i class="fas fa-times"></i></button>
+                                    <button type="button" class="nl" onclick="remove_cart(this, '{{ $item['id'] }}', '{{ $item['price'] * $item['qty'] }}')"><i class="fas fa-times"></i></button>
                                 </td> 
                             </tr>
                             @php 
-                                $total += $item->regular_price * $item->cart_quantity;
+                                $total += $item['price'] * $item['qty'];
                             @endphp
                             @endforeach 
                             <tr class="result">

@@ -19,7 +19,24 @@
                     Deshboard
                 </a>
             </li>
-            
+            <li class="aside_drop">
+                <a href="javascript:void(0)" class="aside_drop_btn {{ (Route::is('admin.products*') ||Route::is('admin.brands*') || Route::is('admin.categories*') || Route::is('admin.units*')) ? 'active' : '' }}">
+                    <i class="aside_icon fa fa-cubes"></i>
+                    Products
+                </a>
+                <ul>
+                    <li><a class="{{ Route::is('admin.products*') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">Products</a></li>
+                    <li><a class="{{ Route::is('admin.brands*') ? 'active' : '' }}" href="{{ route('admin.brands.index') }}">Brands</a></li>
+                    <li><a class="{{ Route::is('admin.categories*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">Categories</a></li>
+                    <li><a class="{{ Route::is('admin.units*') ? 'active' : '' }}" href="{{ route('admin.units.index') }}">Units</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="{{ Route::is('admin.orders*') ? 'active' : '' }}" href="{{ route('admin.orders') }}">
+                    <i class="aside_icon fas fa-shopping-bag"></i>
+                    Orders
+                </a>
+            </li>
         </ul>
     </div>
 </div>

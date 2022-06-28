@@ -14,29 +14,21 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->unique()->words($nb=5, $asTxt = true);
+        $slug = Str::slug($name);
         return [
-            'name' => $this->faker->words($nb=5, $asTxt = true),
-            'short_description' => $this->faker->text(200),
-            'description' => $this->faker->text(500),
-            'regular_price' => $this->faker->numberBetween(10, 500),
-            'quantity' => $this->faker->numberBetween(100, 400),
-            'image' => 'product'.$this->faker->numberBetween(1, 5).'.jpg',
+            'name' => $name,
+            'slug' => $slug,
+            'short_description' => $this->faker->text(50),
+            'description' => $this->faker->text(100),
+            'price' => rand(100, 500),
+            'image' => 'frontend/products/'.$this->faker->numberBetween(1, 10).'.webp',
             'is_active' => 1,
-            'category_id' => $this->faker->numberBetween(1, 5),
+            'featured' => 1,
+            'category_id' => rand(1, 5),
+            'brand_id' => rand(1, 5),
+            'unit_id' => rand(1, 5),
+            'created_by' => 1,
         ];
-        // name
-        // slug
-        // short_description
-        // description
-        // regular_price
-        // sale_price
-        // SKU
-        // stock_status
-        // featured
-        // quantity
-        // image
-        // images
-        // category_id
-        // category_id
     }
 }

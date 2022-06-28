@@ -14,9 +14,8 @@
 </head>
 <body>
 @php
-if (Auth::check()) {
-    $cart_item = Auth::user()->carts()->get();
-}
+$cart = Session::get('cart');
+$cart_item = $cart ? $cart : [];
 @endphp
 <form action="{{ route('logout') }}" id="logout" method="post">@csrf</form>
 <header class="header">
@@ -118,7 +117,7 @@ if (Auth::check()) {
                 <div class="nav_icn product_card">
                     <a href="{{ route('cart') }}" class="crf">
                         <i class="fa fa-shopping-cart"></i>
-                        <span class="bdg cart">{{ (Auth::check()) ? count($cart_item) : 0 }}</span>
+                        <span class="bdg cart">{{ count($cart_item) }}</span>
                     </a>
                 </div>
                 <div class="nav_icn product_fave">
@@ -164,7 +163,7 @@ if (Auth::check()) {
     <div class="nav_icn product_card">
         <a href="{{ route('cart') }}" class="crf">
             <i class="fa fa-shopping-cart"></i>
-            <span class="bdg cart">{{ (Auth::check()) ? count($cart_item) : 0 }}</span>
+            <span class="bdg cart">{{ count($cart_item) }}</span>
         </a>
     </div>
     <div class="nav_icn product_fave">
@@ -311,6 +310,7 @@ if (Auth::check()) {
                 product_id,
             })
             .then(response => {
+                // console.log(response);
                 if (response.data == 'success') {
                     $(sel).addClass('active');
                     cartCount();

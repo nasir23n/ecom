@@ -14,17 +14,17 @@
         <div class="single">
             <div class="gallery_box">
                 <a href="javascript:void(0)" class="big_box">
-                    <img src="{{ asset('frontend/products') }}/{{ $product->image }}" alt="{{ $product->name }}">
+                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
                 </a>
                 <div class="gallery_link">
-                    <img src="{{ asset('frontend/products') }}/{{ $product->image }}" alt="">
+                    <img src="{{ asset($product->image) }}" alt="">
                 </div>
             </div>
             <div class="specification">
                 <h2 class="name">{{ $product->name }}</h2>
                 <div class="p_status">
                     <span class="badge">
-                        Price: <strong>{{ $product->regular_price }}৳</strong>
+                        Price: <strong>{{ $product->price }}৳</strong>
                     </span>
                 </div>
                 <h2>Description:</h2>
@@ -101,14 +101,14 @@
                         @foreach ($related_product as $item)   
                         <div class="item">
                             <a href="#" class="img">
-                                <img src="{{ asset('frontend/products') }}/{{ $item->image }}" alt="">
+                                <img src="{{ asset($item->image) }}" alt="">
                             </a>
                             <div class="details">
                                 <a href="{{ route('product.details', ['product' => $item->id, 'name' => $item->name]) }}" class="name">
                                     {{ $item->name }}
                                 </a>
                                 <div class="price">
-                                    {{ $item->regular_price }}৳
+                                    {{ $item->price }}৳
                                 </div>
                                 <button class="add_card" onclick="add_cart(this, '{{ $item->id }}', '{{ $item->name }}', '{{ $item->regular_price }}', '{{ $item->image }}')"><i class="fas fa-cart-plus"></i> Add to card</button>
                             </div>
